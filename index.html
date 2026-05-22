@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperius Design</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#09090f;
+    color:white;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:10;
+    background:rgba(10,10,20,.85);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 8%;
+    border-bottom:1px solid #2d2d44;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#b86bff;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-size:15px;
+}
+
+header{
+    min-height:100vh;
+    padding:140px 8% 80px;
+    background:
+    radial-gradient(circle at top,#6d28d9 0%,transparent 35%),
+    linear-gradient(135deg,#0b0b16,#160024);
+    display:flex;
+    align-items:center;
+}
+
+.hero{
+    max-width:750px;
+}
+
+.badge{
+    display:inline-block;
+    background:#221133;
+    border:1px solid #7c3aed;
+    color:#d8b4fe;
+    padding:8px 14px;
+    border-radius:999px;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:62px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+h1 span{
+    color:#c084fc;
+}
+
+.hero p{
+    font-size:20px;
+    color:#d4d4d8;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 26px;
+    background:#7c3aed;
+    color:white;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:10px;
+}
+
+.btn.sec{
+    background:#18181b;
+    border:1px solid #3f3f46;
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    font-size:36px;
+    margin-bottom:12px;
+}
+
+.section-sub{
+    color:#a1a1aa;
+    margin-bottom:35px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:22px;
+}
+
+.card{
+    background:#12121c;
+    border:1px solid #2d2d44;
+    border-radius:22px;
+    padding:25px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#8b5cf6;
+    box-shadow:0 0 25px rgba(124,58,237,.25);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#f5f3ff;
+}
+
+.card p{
+    color:#bdbdc7;
+    font-size:15px;
+    line-height:1.5;
+}
+
+.price{
+    margin:18px 0;
+    font-size:24px;
+    font-weight:bold;
+    color:#c084fc;
+}
+
+.buy{
+    display:block;
+    text-align:center;
+    background:#7c3aed;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+.banner{
+    background:linear-gradient(135deg,#4c1d95,#111827);
+    border:1px solid #7c3aed;
+    border-radius:28px;
+    padding:45px;
+    text-align:center;
+}
+
+.review{
+    font-style:italic;
+}
+
+footer{
+    background:#050508;
+    border-top:1px solid #2d2d44;
+    padding:35px 8%;
+    color:#a1a1aa;
+    text-align:center;
+}
+
+@media(max-width:700px){
+    nav{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    nav a{
+        margin:0 8px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Imperius Design</div>
+    <div>
+        <a href="#produtos">Produtos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#contato">Contato</a>
+    </div>
+</nav>
+
+<header>
+    <div class="hero">
+        <div class="badge">Loja digital de artes visuais</div>
+
+        <h1>Designs que fazem sua ideia <span>parecer gigante.</span></h1>
+
+        <p>
+            Slides, banners, posters, identidades visuais, artes escolares,
+            templates e materiais digitais personalizados para estudantes,
+            criadores e projetos profissionais.
+        </p>
+
+        <a class="btn" href="#produtos">Ver Catálogo</a>
+        <a class="btn sec" href="#contato">Fazer Pedido</a>
+    </div>
+</header>
+
+<section id="servicos">
+    <h2 class="section-title">O que fazemos</h2>
+    <p class="section-sub">Artes digitais com estética forte, entrega prática e presença visual.</p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Slides Profissionais</h3>
+            <p>Apresentações escolares, acadêmicas e profissionais com visual moderno.</p>
+        </div>
+
+        <div class="card">
+            <h3>Banners e Posters</h3>
+            <p>Artes impactantes para eventos, redes sociais, servidores e projetos.</p>
+        </div>
+
+        <div class="card">
+            <h3>Identidade Visual</h3>
+            <p>Criação de logos, padrões visuais, paletas e presença de marca.</p>
+        </div>
+
+        <div class="card">
+            <h3>Artes Gamer</h3>
+            <p>Designs para Discord, crews, comunidades, thumbnails e perfis.</p>
+        </div>
+    </div>
+</section>
+
+<section id="produtos">
+    <h2 class="section-title">Catálogo</h2>
+    <p class="section-sub">Escolha um produto e peça diretamente pelo atendimento.</p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Slide Escolar</h3>
+            <p>Modelo visual para trabalhos, seminários e apresentações.</p>
+            <div class="price">R$ 10</div>
+            <a class="buy" href="#contato">Comprar</a>
+        </div>
+
+        <div class="card">
+            <h3>Slide Premium</h3>
+            <p>Apresentação mais elaborada, com estética profissional.</p>
+            <div class="price">R$ 20</div>
+            <a class="buy" href="#contato">Comprar</a>
+        </div>
+
+        <div class="card">
+            <h3>Banner Digital</h3>
+            <p>Arte para divulgação, eventos, equipes e redes sociais.</p>
+            <div class="price">R$ 15</div>
+            <a class="buy" href="#contato">Comprar</a>
+        </div>
+
+        <div class="card">
+            <h3>Identidade Visual</h3>
+            <p>Criação de estilo visual para projeto, marca ou comunidade.</p>
+            <div class="price">R$ 40</div>
+            <a class="buy" href="#contato">Comprar</a>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="banner">
+        <h2>Arte não é enfeite. É presença.</h2>
+        <p>
+            A Imperius Design transforma ideias simples em materiais visuais
+            marcantes, organizados e prontos para impressionar.
+        </p>
+    </div>
+</section>
+
+<section id="avaliacoes">
+    <h2 class="section-title">Avaliações</h2>
+    <p class="section-sub">Espaço reservado para feedbacks de clientes.</p>
+
+    <div class="grid">
+        <div class="card review">
+            “Visual limpo, bonito e muito melhor do que eu esperava.”
+        </div>
+
+        <div class="card review">
+            “Meu trabalho ficou com cara profissional.”
+        </div>
+
+        <div class="card review">
+            “Atendimento rápido e arte bem feita.”
+        </div>
+    </div>
+</section>
+
+<section id="contato">
+    <h2 class="section-title">Fazer pedido</h2>
+    <p class="section-sub">
+        Para comprar ou pedir orçamento, entre em contato pelo Discord, Instagram ou WhatsApp.
+    </p>
+
+    <div class="grid">
+        <div class="card">
+            <h3>WhatsApp</h3>
+            <p>Adicione seu número depois no botão abaixo.</p>
+            <a class="buy" href="#">Chamar no WhatsApp</a>
+        </div>
+
+        <div class="card">
+            <h3>Discord</h3>
+            <p>Ideal para pedidos gamer, comunidades e suporte.</p>
+            <a class="buy" href="#">Entrar no Discord</a>
+        </div>
+
+        <div class="card">
+            <h3>Instagram</h3>
+            <p>Veja artes, portfólio e novidades.</p>
+            <a class="buy" href="#">Ver Instagram</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Imperius Design — Artes visuais, slides e identidades que impõem presença.
+</footer>
+
+</body>
+          </html>
