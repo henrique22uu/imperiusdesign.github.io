@@ -5,167 +5,279 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imperius Design</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
 body{
-    font-family:Arial, sans-serif;
-    background:#09090f;
+    font-family:'Poppins', sans-serif;
+    background:#07070d;
     color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(124,58,237,.25), transparent 30%),
+        radial-gradient(circle at 80% 10%, rgba(59,130,246,.18), transparent 30%),
+        radial-gradient(circle at 50% 90%, rgba(168,85,247,.18), transparent 35%);
+    z-index:-2;
 }
 
 nav{
     position:fixed;
     top:0;
     width:100%;
-    z-index:10;
-    background:rgba(10,10,20,.85);
-    backdrop-filter:blur(10px);
+    z-index:100;
+    background:rgba(7,7,13,.78);
+    backdrop-filter:blur(14px);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 8%;
-    border-bottom:1px solid #2d2d44;
+    padding:14px 8%;
+    border-bottom:1px solid rgba(168,85,247,.25);
 }
 
 .logo{
-    font-size:24px;
-    font-weight:bold;
-    color:#b86bff;
+    display:flex;
+    align-items:center;
+}
+
+.logo img{
+    width:58px;
+    height:58px;
+    object-fit:cover;
+    border-radius:14px;
+    box-shadow:0 0 18px rgba(168,85,247,.5);
+    animation:pulseLogo 3s infinite ease-in-out;
+}
+
+@keyframes pulseLogo{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.07)}
 }
 
 nav a{
     color:white;
     text-decoration:none;
-    margin-left:20px;
+    margin-left:24px;
     font-size:15px;
+    font-weight:500;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-6px;
+    width:0;
+    height:2px;
+    background:#c084fc;
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 header{
     min-height:100vh;
-    padding:140px 8% 80px;
-    background:
-    radial-gradient(circle at top,#6d28d9 0%,transparent 35%),
-    linear-gradient(135deg,#0b0b16,#160024);
+    padding:150px 8% 80px;
     display:flex;
     align-items:center;
+    background:
+        linear-gradient(135deg,rgba(12,12,25,.85),rgba(35,0,55,.75)),
+        url("imopeo.png");
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:right center;
 }
 
 .hero{
-    max-width:750px;
+    max-width:760px;
+    animation:fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(40px)}
+    to{opacity:1;transform:translateY(0)}
 }
 
 .badge{
     display:inline-block;
-    background:#221133;
+    background:rgba(34,17,51,.85);
     border:1px solid #7c3aed;
-    color:#d8b4fe;
-    padding:8px 14px;
+    color:#e9d5ff;
+    padding:9px 16px;
     border-radius:999px;
-    margin-bottom:20px;
+    margin-bottom:22px;
+    font-size:14px;
+    box-shadow:0 0 20px rgba(124,58,237,.25);
 }
 
 h1{
-    font-size:62px;
+    font-family:'Orbitron', sans-serif;
+    font-size:64px;
     line-height:1.05;
-    margin-bottom:20px;
+    margin-bottom:22px;
+    letter-spacing:1px;
 }
 
 h1 span{
     color:#c084fc;
+    text-shadow:0 0 18px rgba(192,132,252,.5);
 }
 
 .hero p{
     font-size:20px;
     color:#d4d4d8;
-    margin-bottom:30px;
+    margin-bottom:32px;
+    line-height:1.6;
 }
 
 .btn{
     display:inline-block;
-    padding:15px 26px;
-    background:#7c3aed;
+    padding:15px 28px;
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
     color:white;
-    border-radius:12px;
+    border-radius:14px;
     text-decoration:none;
-    font-weight:bold;
-    margin-right:10px;
+    font-weight:700;
+    margin-right:12px;
+    transition:.3s;
+    box-shadow:0 0 22px rgba(124,58,237,.35);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 35px rgba(168,85,247,.65);
 }
 
 .btn.sec{
-    background:#18181b;
+    background:#14141f;
     border:1px solid #3f3f46;
 }
 
 section{
-    padding:80px 8%;
+    padding:90px 8%;
 }
 
 .section-title{
-    font-size:36px;
-    margin-bottom:12px;
+    font-family:'Orbitron', sans-serif;
+    font-size:38px;
+    margin-bottom:14px;
 }
 
 .section-sub{
     color:#a1a1aa;
-    margin-bottom:35px;
+    margin-bottom:38px;
+    font-size:17px;
 }
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:22px;
+    gap:24px;
 }
 
 .card{
-    background:#12121c;
-    border:1px solid #2d2d44;
-    border-radius:22px;
-    padding:25px;
-    transition:.3s;
+    background:rgba(18,18,28,.9);
+    border:1px solid rgba(168,85,247,.18);
+    border-radius:24px;
+    padding:28px;
+    transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:linear-gradient(120deg,transparent,rgba(168,85,247,.12),transparent);
+    transform:rotate(25deg);
+    opacity:0;
+    transition:.4s;
+}
+
+.card:hover::before{
+    opacity:1;
 }
 
 .card:hover{
-    transform:translateY(-6px);
+    transform:translateY(-8px) scale(1.02);
     border-color:#8b5cf6;
-    box-shadow:0 0 25px rgba(124,58,237,.25);
+    box-shadow:0 0 32px rgba(124,58,237,.28);
 }
 
 .card h3{
-    margin-bottom:10px;
+    margin-bottom:12px;
     color:#f5f3ff;
+    font-size:21px;
 }
 
 .card p{
     color:#bdbdc7;
     font-size:15px;
-    line-height:1.5;
+    line-height:1.6;
 }
 
 .price{
-    margin:18px 0;
-    font-size:24px;
-    font-weight:bold;
+    margin:20px 0;
+    font-size:27px;
+    font-weight:800;
     color:#c084fc;
 }
 
 .buy{
     display:block;
     text-align:center;
-    background:#7c3aed;
+    background:linear-gradient(135deg,#7c3aed,#9333ea);
     color:white;
     text-decoration:none;
-    padding:12px;
-    border-radius:10px;
-    margin-top:15px;
+    padding:13px;
+    border-radius:12px;
+    margin-top:16px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.buy:hover{
+    transform:scale(1.04);
+    box-shadow:0 0 20px rgba(168,85,247,.5);
 }
 
 .banner{
     background:linear-gradient(135deg,#4c1d95,#111827);
     border:1px solid #7c3aed;
-    border-radius:28px;
-    padding:45px;
+    border-radius:30px;
+    padding:50px;
     text-align:center;
+    box-shadow:0 0 35px rgba(124,58,237,.25);
+}
+
+.banner h2{
+    font-family:'Orbitron', sans-serif;
+    margin-bottom:15px;
+    font-size:32px;
+}
+
+.banner p{
+    color:#ddd6fe;
+    line-height:1.7;
 }
 
 .review{
@@ -175,12 +287,18 @@ section{
 footer{
     background:#050508;
     border-top:1px solid #2d2d44;
-    padding:35px 8%;
+    padding:38px 8%;
     color:#a1a1aa;
     text-align:center;
 }
 
-@media(max-width:700px){
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    animation:fadeUp 1s ease forwards;
+}
+
+@media(max-width:800px){
     nav{
         flex-direction:column;
         gap:12px;
@@ -188,6 +306,13 @@ footer{
 
     nav a{
         margin:0 8px;
+        font-size:14px;
+    }
+
+    header{
+        background-position:center bottom;
+        background-size:80%;
+        padding-top:170px;
     }
 
     h1{
@@ -197,6 +322,11 @@ footer{
     .hero p{
         font-size:17px;
     }
+
+    .logo img{
+        width:50px;
+        height:50px;
+    }
 }
 </style>
 </head>
@@ -204,10 +334,11 @@ footer{
 <body>
 
 <nav>
-<div class="logo">
-    <img src="imopeo.png" alt="Imperius Design">
-    <span>Imperius Design</span>
-</div
+    <div class="logo">
+        <img src="imopeo.png" alt="Logo Imperius Design">
+    </div>
+
+    <div>
         <a href="#produtos">Produtos</a>
         <a href="#servicos">Serviços</a>
         <a href="#avaliacoes">Avaliações</a>
@@ -232,7 +363,7 @@ footer{
     </div>
 </header>
 
-<section id="servicos">
+<section id="servicos" class="reveal">
     <h2 class="section-title">O que fazemos</h2>
     <p class="section-sub">Artes digitais com estética forte, entrega prática e presença visual.</p>
 
@@ -259,7 +390,7 @@ footer{
     </div>
 </section>
 
-<section id="produtos">
+<section id="produtos" class="reveal">
     <h2 class="section-title">Catálogo</h2>
     <p class="section-sub">Escolha um produto e peça diretamente pelo atendimento.</p>
 
@@ -294,7 +425,7 @@ footer{
     </div>
 </section>
 
-<section>
+<section class="reveal">
     <div class="banner">
         <h2>Arte não é enfeite. É presença.</h2>
         <p>
@@ -304,7 +435,7 @@ footer{
     </div>
 </section>
 
-<section id="avaliacoes">
+<section id="avaliacoes" class="reveal">
     <h2 class="section-title">Avaliações</h2>
     <p class="section-sub">Espaço reservado para feedbacks de clientes.</p>
 
@@ -323,7 +454,7 @@ footer{
     </div>
 </section>
 
-<section id="contato">
+<section id="contato" class="reveal">
     <h2 class="section-title">Fazer pedido</h2>
     <p class="section-sub">
         Para comprar ou pedir orçamento, entre em contato pelo Discord, Instagram ou WhatsApp.
@@ -355,4 +486,4 @@ footer{
 </footer>
 
 </body>
-          </html>
+</html>
