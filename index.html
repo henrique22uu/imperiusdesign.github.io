@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imperius Design</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -16,474 +17,845 @@
 }
 
 body{
-    font-family:'Poppins', sans-serif;
-    background:#07070d;
+    font-family:'Poppins',sans-serif;
+    background:#06060d;
     color:white;
     overflow-x:hidden;
 }
+
+/* FUNDO */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(124,58,237,.25), transparent 30%),
-        radial-gradient(circle at 80% 10%, rgba(59,130,246,.18), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(168,85,247,.18), transparent 35%);
+    radial-gradient(circle at top left, rgba(168,85,247,.20), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(59,130,246,.15), transparent 30%);
     z-index:-2;
 }
+
+/* NAVBAR */
 
 nav{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
-    z-index:100;
-    background:rgba(7,7,13,.78);
-    backdrop-filter:blur(14px);
+    z-index:1000;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:14px 8%;
-    border-bottom:1px solid rgba(168,85,247,.25);
+
+    padding:14px 7%;
+
+    background:rgba(6,6,13,.85);
+    backdrop-filter:blur(16px);
+
+    border-bottom:1px solid rgba(168,85,247,.2);
 }
 
 .logo{
     display:flex;
     align-items:center;
+    gap:12px;
 }
 
 .logo img{
     width:58px;
     height:58px;
+    border-radius:16px;
     object-fit:cover;
-    border-radius:14px;
-    box-shadow:0 0 18px rgba(168,85,247,.5);
-    animation:pulseLogo 3s infinite ease-in-out;
+
+    box-shadow:0 0 22px rgba(168,85,247,.45);
 }
 
-@keyframes pulseLogo{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.07)}
+.logo span{
+    font-family:'Orbitron',sans-serif;
+    font-size:18px;
+    font-weight:800;
 }
 
-nav a{
+/* MENU */
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.menu a{
     color:white;
     text-decoration:none;
-    margin-left:24px;
     font-size:15px;
-    font-weight:500;
+    font-weight:600;
     position:relative;
 }
 
-nav a::after{
+.menu a::after{
     content:"";
     position:absolute;
     left:0;
     bottom:-6px;
+
     width:0;
     height:2px;
+
     background:#c084fc;
+
     transition:.3s;
 }
 
-nav a:hover::after{
+.menu a:hover::after{
     width:100%;
 }
 
+/* HAMBURGUER */
+
+.menu-btn{
+    display:none;
+
+    background:none;
+    border:none;
+
+    color:white;
+    font-size:34px;
+
+    cursor:pointer;
+}
+
+.mobile-menu{
+    position:fixed;
+    top:80px;
+    right:-100%;
+
+    width:280px;
+    height:100vh;
+
+    background:#0d0d17;
+
+    padding:30px;
+
+    transition:.4s;
+
+    z-index:999;
+
+    border-left:1px solid rgba(168,85,247,.18);
+}
+
+.mobile-menu.active{
+    right:0;
+}
+
+.mobile-menu a{
+    display:block;
+
+    color:white;
+    text-decoration:none;
+
+    margin-bottom:26px;
+
+    font-size:18px;
+    font-weight:700;
+}
+
+/* HERO */
+
 header{
     min-height:100vh;
-    padding:150px 8% 80px;
+
+    padding:150px 7% 90px;
+
     display:flex;
     align-items:center;
-    background:
-        linear-gradient(135deg,rgba(12,12,25,.85),rgba(35,0,55,.75)),
-        url("imopeo.png");
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:right center;
+    justify-content:space-between;
+    gap:50px;
 }
 
 .hero{
-    max-width:760px;
-    animation:fadeUp 1.2s ease forwards;
-}
-
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(40px)}
-    to{opacity:1;transform:translateY(0)}
+    width:55%;
+    animation:fadeUp 1s ease;
 }
 
 .badge{
     display:inline-block;
-    background:rgba(34,17,51,.85);
+
+    background:#1d1129;
     border:1px solid #7c3aed;
+
     color:#e9d5ff;
+
     padding:9px 16px;
+
     border-radius:999px;
-    margin-bottom:22px;
+
+    margin-bottom:24px;
+
     font-size:14px;
-    box-shadow:0 0 20px rgba(124,58,237,.25);
 }
 
 h1{
-    font-family:'Orbitron', sans-serif;
+    font-family:'Orbitron',sans-serif;
+
     font-size:64px;
-    line-height:1.05;
-    margin-bottom:22px;
-    letter-spacing:1px;
+    line-height:1.06;
+
+    margin-bottom:24px;
 }
 
 h1 span{
     color:#c084fc;
+
     text-shadow:0 0 18px rgba(192,132,252,.5);
 }
 
 .hero p{
-    font-size:20px;
+    font-size:19px;
+    line-height:1.7;
+
     color:#d4d4d8;
-    margin-bottom:32px;
-    line-height:1.6;
+
+    margin-bottom:34px;
+}
+
+.actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
 }
 
 .btn{
     display:inline-block;
+
     padding:15px 28px;
-    background:linear-gradient(135deg,#7c3aed,#a855f7);
-    color:white;
-    border-radius:14px;
+
+    border-radius:15px;
+
     text-decoration:none;
-    font-weight:700;
-    margin-right:12px;
+    font-weight:800;
+
     transition:.3s;
-    box-shadow:0 0 22px rgba(124,58,237,.35);
+}
+
+.primary{
+    background:linear-gradient(135deg,#7c3aed,#a855f7);
+
+    color:white;
+
+    box-shadow:0 0 25px rgba(124,58,237,.35);
+}
+
+.secondary{
+    background:#14141f;
+
+    color:white;
+
+    border:1px solid #3f3f46;
 }
 
 .btn:hover{
     transform:translateY(-4px);
-    box-shadow:0 0 35px rgba(168,85,247,.65);
 }
 
-.btn.sec{
-    background:#14141f;
-    border:1px solid #3f3f46;
+/* IMAGEM HERO */
+
+.hero-img{
+    width:38%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    animation:float 4s ease-in-out infinite;
 }
+
+.hero-img img{
+    width:100%;
+    max-width:430px;
+
+    border-radius:28px;
+
+    box-shadow:0 0 45px rgba(124,58,237,.35);
+}
+
+/* SECTIONS */
 
 section{
-    padding:90px 8%;
+    padding:85px 7%;
 }
 
 .section-title{
-    font-family:'Orbitron', sans-serif;
+    font-family:'Orbitron',sans-serif;
+
     font-size:38px;
-    margin-bottom:14px;
+
+    margin-bottom:12px;
 }
 
 .section-sub{
     color:#a1a1aa;
+
     margin-bottom:38px;
+
     font-size:17px;
 }
 
+/* GRID */
+
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
     gap:24px;
 }
 
+/* CARDS */
+
 .card{
-    background:rgba(18,18,28,.9);
+    background:rgba(18,18,28,.94);
+
     border:1px solid rgba(168,85,247,.18);
+
     border-radius:24px;
+
     padding:28px;
+
     transition:.35s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    top:-50%;
-    left:-50%;
-    width:200%;
-    height:200%;
-    background:linear-gradient(120deg,transparent,rgba(168,85,247,.12),transparent);
-    transform:rotate(25deg);
-    opacity:0;
-    transition:.4s;
-}
-
-.card:hover::before{
-    opacity:1;
 }
 
 .card:hover{
-    transform:translateY(-8px) scale(1.02);
+    transform:translateY(-8px);
+
     border-color:#8b5cf6;
-    box-shadow:0 0 32px rgba(124,58,237,.28);
+
+    box-shadow:0 0 32px rgba(124,58,237,.25);
 }
 
 .card h3{
+    font-size:22px;
+
     margin-bottom:12px;
-    color:#f5f3ff;
-    font-size:21px;
 }
 
 .card p{
-    color:#bdbdc7;
-    font-size:15px;
+    color:#c4c4cf;
+
     line-height:1.6;
 }
 
 .price{
-    margin:20px 0;
-    font-size:27px;
+    margin-top:18px;
+
+    font-size:28px;
     font-weight:800;
+
     color:#c084fc;
 }
 
 .buy{
     display:block;
+
+    margin-top:18px;
+
     text-align:center;
+
     background:linear-gradient(135deg,#7c3aed,#9333ea);
-    color:white;
-    text-decoration:none;
+
     padding:13px;
+
     border-radius:12px;
-    margin-top:16px;
+
+    text-decoration:none;
+
+    color:white;
     font-weight:700;
-    transition:.3s;
 }
 
-.buy:hover{
-    transform:scale(1.04);
-    box-shadow:0 0 20px rgba(168,85,247,.5);
+/* PORTFOLIO */
+
+.portfolio-img{
+    width:100%;
+    border-radius:18px;
 }
+
+/* BANNER */
 
 .banner{
     background:linear-gradient(135deg,#4c1d95,#111827);
+
     border:1px solid #7c3aed;
+
     border-radius:30px;
+
     padding:50px;
+
     text-align:center;
-    box-shadow:0 0 35px rgba(124,58,237,.25);
+
+    box-shadow:0 0 35px rgba(124,58,237,.22);
 }
 
 .banner h2{
-    font-family:'Orbitron', sans-serif;
-    margin-bottom:15px;
+    font-family:'Orbitron',sans-serif;
+
+    margin-bottom:16px;
+
     font-size:32px;
 }
 
 .banner p{
     color:#ddd6fe;
+
     line-height:1.7;
 }
 
-.review{
-    font-style:italic;
-}
+/* FOOTER */
 
 footer{
     background:#050508;
-    border-top:1px solid #2d2d44;
-    padding:38px 8%;
-    color:#a1a1aa;
+
+    border-top:1px solid rgba(168,85,247,.15);
+
+    padding:40px 7%;
+
     text-align:center;
+
+    color:#8f8f99;
 }
 
-.reveal{
-    opacity:0;
-    transform:translateY(35px);
-    animation:fadeUp 1s ease forwards;
+/* ANIMAÇÕES */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-@media(max-width:800px){
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
     nav{
-        flex-direction:column;
-        gap:12px;
+        padding:12px 5%;
     }
 
-    nav a{
-        margin:0 8px;
-        font-size:14px;
+    .menu{
+        display:none;
     }
 
-    header{
-        background-position:center bottom;
-        background-size:80%;
-        padding-top:170px;
-    }
-
-    h1{
-        font-size:42px;
-    }
-
-    .hero p{
-        font-size:17px;
+    .menu-btn{
+        display:block;
     }
 
     .logo img{
         width:50px;
         height:50px;
     }
+
+    .logo span{
+        font-size:14px;
+    }
+
+    header{
+        display:block;
+
+        padding:125px 5% 70px;
+    }
+
+    .hero{
+        width:100%;
+    }
+
+    .hero-img{
+        width:100%;
+
+        margin-top:40px;
+    }
+
+    .hero-img img{
+        width:80%;
+        max-width:320px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .actions{
+        display:block;
+    }
+
+    .btn{
+        width:100%;
+        text-align:center;
+        margin-bottom:14px;
+    }
+
+    section{
+        padding:70px 5%;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .mobile-menu{
+        width:100%;
+        top:74px;
+    }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
+
     <div class="logo">
-        <img src="imopeo.png" alt="Logo Imperius Design">
+        <img src="imopeo.png">
+        <span>Imperius Design</span>
     </div>
 
-    <div>
-        <a href="#produtos">Produtos</a>
+    <div class="menu">
         <a href="#servicos">Serviços</a>
-        <a href="#avaliacoes">Avaliações</a>
+        <a href="#gamer">Gamer</a>
+        <a href="#portfolio">Portfólio</a>
         <a href="#contato">Contato</a>
     </div>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
 </nav>
 
-<header>
-    <div class="hero">
-        <div class="badge">Loja digital de artes visuais</div>
+<!-- MENU MOBILE -->
 
-        <h1>Designs que fazem sua ideia <span>parecer gigante.</span></h1>
+<div class="mobile-menu" id="mobileMenu">
+
+    <a href="#servicos">Serviços</a>
+    <a href="#gamer">Produtos Gamer</a>
+    <a href="#portfolio">Portfólio</a>
+    <a href="#contato">Contato</a>
+
+</div>
+
+<!-- HERO -->
+
+<header>
+
+    <div class="hero">
+
+        <div class="badge">
+            Loja digital • Artes • Produtos Gamer
+        </div>
+
+        <h1>
+            O império visual da sua <span>presença digital.</span>
+        </h1>
 
         <p>
-            Slides, banners, posters, identidades visuais, artes escolares,
-            templates e materiais digitais personalizados para estudantes,
-            criadores e projetos profissionais.
+            Artes profissionais, identidades visuais, banners,
+            slides premium e produtos gamer para Roblox e Blox Fruits.
         </p>
 
-        <a class="btn" href="#produtos">Ver Catálogo</a>
-        <a class="btn sec" href="#contato">Fazer Pedido</a>
+        <div class="actions">
+
+            <a class="btn primary" href="#gamer">
+                Produtos Gamer
+            </a>
+
+            <a class="btn secondary" href="#contato">
+                Fazer Pedido
+            </a>
+
+        </div>
+
     </div>
+
+    <div class="hero-img">
+        <img src="imopeo.png">
+    </div>
+
 </header>
 
-<section id="servicos" class="reveal">
-    <h2 class="section-title">O que fazemos</h2>
-    <p class="section-sub">Artes digitais com estética forte, entrega prática e presença visual.</p>
+<!-- SERVIÇOS -->
+
+<section id="servicos">
+
+    <h2 class="section-title">
+        Serviços Visuais
+    </h2>
+
+    <p class="section-sub">
+        Design moderno, presença forte e estética profissional.
+    </p>
 
     <div class="grid">
+
         <div class="card">
-            <h3>Slides Profissionais</h3>
-            <p>Apresentações escolares, acadêmicas e profissionais com visual moderno.</p>
+            <h3>Slides Premium</h3>
+
+            <p>
+                Apresentações modernas para trabalhos,
+                seminários e projetos.
+            </p>
         </div>
 
         <div class="card">
-            <h3>Banners e Posters</h3>
-            <p>Artes impactantes para eventos, redes sociais, servidores e projetos.</p>
+            <h3>Banners & Posters</h3>
+
+            <p>
+                Artes impactantes para eventos,
+                equipes e redes sociais.
+            </p>
         </div>
 
         <div class="card">
             <h3>Identidade Visual</h3>
-            <p>Criação de logos, padrões visuais, paletas e presença de marca.</p>
+
+            <p>
+                Logos, paletas e presença visual para marcas.
+            </p>
         </div>
 
         <div class="card">
             <h3>Artes Gamer</h3>
-            <p>Designs para Discord, crews, comunidades, thumbnails e perfis.</p>
+
+            <p>
+                Designs para Discord,
+                crews e comunidades.
+            </p>
         </div>
+
     </div>
+
 </section>
 
-<section id="produtos" class="reveal">
-    <h2 class="section-title">Catálogo</h2>
-    <p class="section-sub">Escolha um produto e peça diretamente pelo atendimento.</p>
+<!-- GAMER -->
 
-    <div class="grid">
-        <div class="card">
-            <h3>Slide Escolar</h3>
-            <p>Modelo visual para trabalhos, seminários e apresentações.</p>
-            <div class="price">R$ 10</div>
-            <a class="buy" href="#contato">Comprar</a>
-        </div>
+<section id="gamer">
 
-        <div class="card">
-            <h3>Slide Premium</h3>
-            <p>Apresentação mais elaborada, com estética profissional.</p>
-            <div class="price">R$ 20</div>
-            <a class="buy" href="#contato">Comprar</a>
-        </div>
+    <h2 class="section-title">
+        Produtos Gamer
+    </h2>
 
-        <div class="card">
-            <h3>Banner Digital</h3>
-            <p>Arte para divulgação, eventos, equipes e redes sociais.</p>
-            <div class="price">R$ 15</div>
-            <a class="buy" href="#contato">Comprar</a>
-        </div>
-
-        <div class="card">
-            <h3>Identidade Visual</h3>
-            <p>Criação de estilo visual para projeto, marca ou comunidade.</p>
-            <div class="price">R$ 40</div>
-            <a class="buy" href="#contato">Comprar</a>
-        </div>
-    </div>
-</section>
-
-<section class="reveal">
-    <div class="banner">
-        <h2>Arte não é enfeite. É presença.</h2>
-        <p>
-            A Imperius Design transforma ideias simples em materiais visuais
-            marcantes, organizados e prontos para impressionar.
-        </p>
-    </div>
-</section>
-
-<section id="avaliacoes" class="reveal">
-    <h2 class="section-title">Avaliações</h2>
-    <p class="section-sub">Espaço reservado para feedbacks de clientes.</p>
-
-    <div class="grid">
-        <div class="card review">
-            “Visual limpo, bonito e muito melhor do que eu esperava.”
-        </div>
-
-        <div class="card review">
-            “Meu trabalho ficou com cara profissional.”
-        </div>
-
-        <div class="card review">
-            “Atendimento rápido e arte bem feita.”
-        </div>
-    </div>
-</section>
-
-<section id="contato" class="reveal">
-    <h2 class="section-title">Fazer pedido</h2>
     <p class="section-sub">
-        Para comprar ou pedir orçamento, entre em contato pelo Discord, Instagram ou WhatsApp.
+        Produtos e serviços voltados ao universo Roblox.
     </p>
 
     <div class="grid">
+
         <div class="card">
-            <h3>WhatsApp</h3>
-            <p>Adicione seu número depois no botão abaixo.</p>
-            <a class="buy" href="#">Chamar no WhatsApp</a>
+
+            <h3>Conta Blox Fruits</h3>
+
+            <p>
+                Conta upada com level avançado,
+                frutas raras e progresso elevado.
+            </p>
+
+            <div class="price">
+                R$ 25+
+            </div>
+
+            <a class="buy" href="https://wa.me/5541984879152">
+                Comprar
+            </a>
+
         </div>
 
         <div class="card">
-            <h3>Discord</h3>
-            <p>Ideal para pedidos gamer, comunidades e suporte.</p>
-            <a class="buy" href="#">Entrar no Discord</a>
+
+            <h3>Serviço de Up</h3>
+
+            <p>
+                Evolução de contas no Blox Fruits
+                com rapidez e suporte.
+            </p>
+
+            <div class="price">
+                R$ 15+
+            </div>
+
+            <a class="buy" href="https://wa.me/5541984879152">
+                Solicitar
+            </a>
+
         </div>
 
         <div class="card">
-            <h3>Instagram</h3>
-            <p>Veja artes, portfólio e novidades.</p>
-            <a class="buy" href="#">Ver Instagram</a>
+
+            <h3>Pack Gamer</h3>
+
+            <p>
+                Combo com banner,
+                perfil e identidade gamer.
+            </p>
+
+            <div class="price">
+                R$ 30+
+            </div>
+
+            <a class="buy" href="https://wa.me/5541984879152">
+                Comprar
+            </a>
+
         </div>
+
     </div>
+
 </section>
 
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+
+    <h2 class="section-title">
+        Portfólio
+    </h2>
+
+    <p class="section-sub">
+        Alguns exemplos da Imperius Design.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+            <img class="portfolio-img" src="imopeo.png">
+        </div>
+
+        <div class="card">
+            <img class="portfolio-img" src="imopeo.png">
+        </div>
+
+        <div class="card">
+            <img class="portfolio-img" src="imopeo.png">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BANNER -->
+
+<section>
+
+    <div class="banner">
+
+        <h2>
+            Arte não é decoração. É domínio visual.
+        </h2>
+
+        <p>
+            A Imperius Design une estética moderna,
+            presença gamer e impacto visual.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section id="contato">
+
+    <h2 class="section-title">
+        Contato
+    </h2>
+
+    <p class="section-sub">
+        Entre em contato para pedidos,
+        orçamentos e disponibilidade.
+    </p>
+
+    <div class="grid">
+
+        <div class="card">
+
+            <h3>WhatsApp</h3>
+
+            <p>
+                Atendimento rápido e direto.
+            </p>
+
+            <a class="buy" href="https://wa.me/5541984879152">
+                Chamar
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Email</h3>
+
+            <p>
+                Contato profissional oficial.
+            </p>
+
+            <a class="buy" href="mailto:henrique.vinhote2206souza@gmail.com">
+                Enviar Email
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Instagram</h3>
+
+            <p>
+                Portfólio e novidades da marca.
+            </p>
+
+            <a class="buy" href="#">
+                Ver Perfil
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer>
-    © 2026 Imperius Design — Artes visuais, slides e identidades que impõem presença.
+    © 2026 Imperius Design — O império da estética digital.
 </footer>
+
+<script>
+
+function toggleMenu(){
+    document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+</script>
 
 </body>
 </html>
